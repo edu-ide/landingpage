@@ -1,12 +1,14 @@
 {
   "title": "Reward Factory",
-  "nav": {
-    "features": "Features",
-    "howItWorks": "How It Works"
-  },
+  "description": "A new way to connect stores and customers",
   "hero": {
     "title": "Welcome to Reward Factory",
-    "description": "Fill your daily life with rewards. Shop, complete missions, and get rewarded!"
+    "description": "Fill your daily life with rewards. Shop, complete missions, and get rewards!"
+  },
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "home": "Home"
   },
   "buttons": {
     "downloadApp": "Download App",
@@ -14,15 +16,15 @@
   },
   "features": {
     "title": "Key Features",
-    "card1": {
+    "easyPoints": {
       "title": "Easy Points",
       "description": "Easily earn points through various daily activities."
     },
-    "card2": {
+    "rewards": {
       "title": "Various Rewards",
       "description": "Use your earned points for various products and services."
     },
-    "card3": {
+    "withFriends": {
       "title": "With Friends",
       "description": "Invite friends and complete missions together for more rewards."
     }
@@ -31,5 +33,21 @@
     "copyright": "© 2024 Reward Factory. All rights reserved.",
     "terms": "Terms of Service",
     "privacy": "Privacy Policy"
+  },
+  "metadata": {
+    "title": "Reward Factory - Rewards for Your Daily Life",
+    "description": "Shop, complete missions, and get rewarded!",
+    "keywords": "rewards, points, shopping, missions, earn",
+    "og": {
+      "title": "Reward Factory",
+      "description": "Fill your daily life with rewards",
+      "image": "/images/og-image-en.jpg",
+      "imageAlt": "Reward Factory Introduction Image"
+    },
+    "twitter": {
+      "title": "Reward Factory",
+      "description": "Fill your daily life with rewards",
+      "image": "/images/twitter-image-en.jpg"
+    }
   }
 } 

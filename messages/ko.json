@@ -1,12 +1,14 @@
 {
   "title": "리워드 팩토리",
-  "nav": {
-    "features": "기능",
-    "howItWorks": "사용 방법"
-  },
+  "description": "매장과 고객을 연결하는 새로운 방법",
   "hero": {
     "title": "리워드 팩토리에 오신 것을 환영합니다",
     "description": "당신의 일상을 보상으로 가득 채우세요. 쇼핑하고, 미션을 완료하고, 리워드를 받아가세요!"
+  },
+  "nav": {
+    "features": "기능",
+    "howItWorks": "사용 방법",
+    "home": "홈으로"
   },
   "buttons": {
     "downloadApp": "앱 다운로드",
@@ -14,15 +16,15 @@
   },
   "features": {
     "title": "주요 기능",
-    "card1": {
+    "easyPoints": {
       "title": "간편한 적립",
       "description": "일상 속 다양한 활동으로 포인트를 쉽게 적립하세요."
     },
-    "card2": {
+    "rewards": {
       "title": "다양한 리워드",
       "description": "적립한 포인트로 다양한 상품과 서비스를 이용하세요."
     },
-    "card3": {
+    "withFriends": {
       "title": "친구와 함께",
       "description": "친구를 초대하고 함께 미션을 수행하며 더 많은 리워드를 받으세요."
     }
@@ -31,5 +33,21 @@
     "copyright": "© 2024 리워드 팩토리. All rights reserved.",
     "terms": "이용약관",
     "privacy": "개인정보처리방침"
+  },
+  "metadata": {
+    "title": "리워드팩토리 - 당신의 일상에 리워드를",
+    "description": "쇼핑하고, 미션을 완료하고, 리워드를 받아가세요!",
+    "keywords": "리워드, 포인트, 적립, 쇼핑, 미션",
+    "og": {
+      "title": "리워드팩토리",
+      "description": "당신의 일상을 보상으로 가득 채우세요",
+      "image": "/images/og-image-ko.jpg",
+      "imageAlt": "리워드팩토리 소개 이미지"
+    },
+    "twitter": {
+      "title": "리워드팩토리",
+      "description": "당신의 일상을 보상으로 가득 채우세요",
+      "image": "/images/twitter-image-ko.jpg"
+    }
   }
 } 
