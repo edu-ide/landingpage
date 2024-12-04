@@ -2,16 +2,20 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "./globals.css";
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import Head from "next/head";
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: "리워드 팩토리",
-  description: "매장과 고객을 연결하는 새로운 방법",
-};
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: 'metadata' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -22,7 +26,6 @@ export default async function RootLayout({
 })
 {
   const { locale } = await params;
-  setRequestLocale(locale);
     
   return (
     <html lang={locale}>
