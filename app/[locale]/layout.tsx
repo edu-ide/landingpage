@@ -12,7 +12,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const locale = params.locale; // 비동기 처리 불필요
+  const {locale} =   await params; // 비동기 처리 불필요
  
   // Providing all messages to the client
   // side is the easiest way to get started

@@ -16,15 +16,15 @@
   },
   "features": {
     "title": "주요 기능",
-    "easyPoints": {
+    "card1": {
       "title": "간편한 적립",
       "description": "일상 속 다양한 활동으로 포인트를 쉽게 적립하세요."
     },
-    "rewards": {
+    "card2": {
       "title": "다양한 리워드",
       "description": "적립한 포인트로 다양한 상품과 서비스를 이용하세요."
     },
-    "withFriends": {
+    "card3": {
       "title": "친구와 함께",
       "description": "친구를 초대하고 함께 미션을 수행하며 더 많은 리워드를 받으세요."
     }

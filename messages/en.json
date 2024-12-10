@@ -16,15 +16,15 @@
   },
   "features": {
     "title": "Key Features",
-    "easyPoints": {
+    "card1": {
       "title": "Easy Points",
       "description": "Easily earn points through various daily activities."
     },
-    "rewards": {
+    "card2": {
       "title": "Various Rewards",
       "description": "Use your earned points for various products and services."
     },
-    "withFriends": {
+    "card3": {
       "title": "With Friends",
       "description": "Invite friends and complete missions together for more rewards."
     }
