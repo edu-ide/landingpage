@@ -9,6 +9,7 @@ declare global {
           payType?: string;
           openType?: string;
           isPopup?: boolean;
+          locale?: string;
         }): {
           open(params: {
             merchantUserKey: string;
