@@ -1,194 +1,249 @@
-import { Gift, Smartphone, Users, ArrowRight } from 'lucide-react';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/routing';
-import { setRequestLocale } from 'next-intl/server';
-import { Notice } from '@/types/notice';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Brain, Code, Lightbulb, Laptop, BookOpen, Target, Check } from 'lucide-react';
+import Image from 'next/image';
 
-// 최근 공지사항 데이터
-const recentNotices: Notice[] = [
-  {
-    id: 1,
-    title: '리워드팩토리 서비스 오픈',
-    content: '리워드팩토리 서비스가 정식 오픈했습니다.',
-    date: '2024-03-19',
-    important: true,
-    category: '공지'
-  },
-  {
-    id: 2,
-    title: '3월 이벤트 안내',
-    content: '3월 한달 간 신규 가입 회원에게 특별 포인트를 지급합니다.',
-    date: '2024-03-15',
-    category: '이벤트'
-  },
-  {
-    id: 3,
-    title: '앱 업데이트 안내',
-    content: '새로운 기능이 추가된 버전이 출시되었습니다.',
-    date: '2024-03-10',
-    category: '안내'
-  }
-];
-
-export default function LandingPage({params}: {params: {locale: string}}) {
-  setRequestLocale(params.locale);
-  const t = useTranslations();
+export default function LandingPage() {
+  const t = useTranslations('Index');
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="/">
-          <Gift className="h-6 w-6 mr-2" />
-          <span className="font-bold">{t('title')}</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
-            {t('nav.features')}
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#how-it-works">
-            {t('nav.howItWorks')}
-          </Link>
-        </nav>
-      </header>
+    <main className="flex min-h-screen flex-col">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center px-4 py-24 text-center bg-gradient-to-b from-gray-50 to-white">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl text-gray-900">
+          EduSense
+        </h1>
+        <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl">
+          AI 기반 코드 분석과 맞춤형 피드백으로 여러분의 코딩 실력을 극대화하세요
+        </p>
+        <div className="mt-10 flex items-center gap-x-6">
+          <Button size="lg">무료로 시작하기</Button>
+          <Button variant="outline" size="lg">IDE 다운로드</Button>
+        </div>
+      </section>
 
-      <main className="flex-1">
-        <section className="w-full min-h-[calc(100vh-3.5rem)] flex items-center justify-center py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 max-w-[1200px] mx-auto">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  {t('hero.title')}
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  {t('hero.description')}
+      {/* Features Section */}
+      <section className="py-24 bg-white">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            EduSense만의 특별한 학습 경험
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={<Brain className="w-10 h-10 text-blue-500" />}
+              title="AI 코드 분석"
+              description="작성한 코드에 대한 상세한 분석과 개선 방향을 제시합니다."
+            />
+            <FeatureCard
+              icon={<Lightbulb className="w-10 h-10 text-yellow-500" />}
+              title="인터랙티브 힌트 시스템"
+              description="텍스트 힌트와 함께 IDE 내 시각적 가이드로 다음 단계를 직관적으로 안내합니다."
+            />
+            <FeatureCard
+              icon={<Code className="w-10 h-10 text-green-500" />}
+              title="강력한 로컬 IDE"
+              description="최적화된 개발 환경에서 AI 피드백과 함께 효율적인 학습이 가능합니다."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Learning Process */}
+      <section className="py-24 bg-gray-50">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            자율적 학습, 지능적 가이드
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <ProcessCard
+              number="01"
+              icon={<Laptop className="w-8 h-8" />}
+              title="로컬 IDE 설치"
+              description="간편한 설치로 바로 시작하는 전문가급 개발 환경"
+            />
+            <ProcessCard
+              number="02"
+              icon={<Brain className="w-8 h-8" />}
+              title="코드 분석 요청"
+              description="AI가 코드의 품질, 성능, 보안성을 분석하고 구체적인 개선점을 제안합니다."
+            />
+            <ProcessCard
+              number="03"
+              icon={<Lightbulb className="w-8 h-8" />}
+              title="시각적 가이드"
+              description="텍스트 힌트와 함께 IDE 내 UI 하이라이트로 다음 액션을 명확하게 안내합니다."
+            />
+            <ProcessCard
+              number="04"
+              icon={<Target className="w-8 h-8" />}
+              title="성장 트래킹"
+              description="데이터 기반으로 여러분의 성장을 시각화하고 다음 단계를 제안합니다."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* IDE Section */}
+      <section className="py-24 bg-white">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            전문가급 로컬 IDE
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold">
+                직관적인 학습 가이드가 통합된 개발 환경
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-2">
+                  <Check className="text-green-500" />
+                  AI 기반 코드 분석 및 피드백
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="text-green-500" />
+                  UI 하이라이트를 통한 시각적 가이드
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="text-green-500" />
+                  단계별 인터랙티브 힌트 시스템
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="text-green-500" />
+                  통합 디버깅 환경
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="text-green-500" />
+                  다양한 프로그래밍 언어 지원
+                </li>
+              </ul>
+              <div className="space-y-4">
+                <p className="text-sm text-gray-600">
+                  예시: 디버깅 시 다음 중단점 위치 하이라이트, 
+                  코드 리팩토링 시 수정이 필요한 부분 강조,
+                  새로운 기능 구현 시 관련 메뉴나 버튼 가이드 등
                 </p>
               </div>
-              <div className="space-x-4">
-                <Button>{t('buttons.downloadApp')}</Button>
-                <Button variant="outline">{t('buttons.learnMore')}</Button>
-              </div>
+              <Button>
+                IDE 다운로드
+              </Button>
+            </div>
+            <div className="rounded-lg overflow-hidden shadow-xl">
+              <Image 
+                src="/ide-screenshot.png" 
+                alt="EduSense IDE" 
+                width={600} 
+                height={400}
+                className="w-full h-auto"
+              />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6 max-w-[1200px] mx-auto">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">
-              {t('features.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card>
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <Smartphone className="h-12 w-12 text-primary" />
-                  <h3 className="text-2xl font-bold text-center">{t('features.card1.title')}</h3>
-                  <p className="text-center text-gray-500 dark:text-gray-400">
-                    {t('features.card1.description')}
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <Gift className="h-12 w-12 text-primary" />
-                  <h3 className="text-2xl font-bold text-center">{t('features.card2.title')}</h3>
-                  <p className="text-center text-gray-500 dark:text-gray-400">
-                    {t('features.card2.description')}
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="flex flex-col items-center space-y-4 p-6">
-                  <Users className="h-12 w-12 text-primary" />
-                  <h3 className="text-2xl font-bold text-center">{t('features.card3.title')}</h3>
-                  <p className="text-center text-gray-500 dark:text-gray-400">
-                    {t('features.card3.description')}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+      {/* Curriculum Section */}
+      <section className="py-24 bg-white">
+        <div className="container px-4 mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            체계적인 학습 경로
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <CourseCard
+              icon={<Code className="w-8 h-8" />}
+              title="웹 개발"
+              level="입문 ~ 고급"
+              duration="6개월"
+              technologies={['HTML/CSS', 'JavaScript', 'React', 'Node.js']}
+            />
+            <CourseCard
+              icon={<Laptop className="w-8 h-8" />}
+              title="앱 개발"
+              level="입문 ~ 고급"
+              duration="6개월"
+              technologies={['Flutter', 'Dart', 'Firebase']}
+            />
+            <CourseCard
+              icon={<Brain className="w-8 h-8" />}
+              title="AI/ML"
+              level="중급 ~ 고급"
+              duration="8개월"
+              technologies={['Python', 'TensorFlow', 'PyTorch']}
+            />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="w-full py-12 md:py-24 bg-white">
-          <div className="container px-4 md:px-6 max-w-[1200px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold">공지사항</h2>
-                  <Link 
-                    href="/notice" 
-                    className="text-sm text-gray-500 hover:text-gray-700 flex items-center"
-                  >
-                    더보기 
-                    <ArrowRight className="ml-1 w-4 h-4" />
-                  </Link>
-                </div>
-                <div className="bg-white rounded-lg shadow p-6">
-                  <div className="space-y-4">
-                    {/* 최근 공지사항 3개 표시 */}
-                    {recentNotices.slice(0, 3).map((notice) => (
-                      <div key={notice.id} className="border-b last:border-0 pb-4 last:pb-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          {notice.important && (
-                            <span className="bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded">
-                              중요
-                            </span>
-                          )}
-                          <span className="text-sm text-gray-400">{notice.date}</span>
-                        </div>
-                        <h3 className="font-medium">{notice.title}</h3>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold">제휴 문의</h2>
-                  <Link 
-                    href="/partnership" 
-                    className="text-sm text-gray-500 hover:text-gray-700 flex items-center"
-                  >
-                    자세히 보기
-                    <ArrowRight className="ml-1 w-4 h-4" />
-                  </Link>
-                </div>
-                <div className="bg-white rounded-lg shadow p-6">
-                  <div className="text-center space-y-4">
-                    <Gift className="w-12 h-12 mx-auto text-primary" />
-                    <h3 className="text-xl font-semibold">
-                      리워드팩토리와 함께 성장하세요
-                    </h3>
-                    <p className="text-gray-600">
-                      광고 및 제휴 문의를 통해 새로운 비즈니스 기회를 만나보세요.
-                    </p>
-                    <Link
-                      href="/partnership"
-                      className="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      제휴 문의하기
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* CTA Section */}
+      <section className="py-24 bg-blue-500 text-white">
+        <div className="container px-4 mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            미래의 개발자로 성장하세요
+          </h2>
+          <p className="text-xl mb-8">
+            EduSense의 지능형 코드 분석과 함께라면 누구나 전문 개발자가 될 수 있습니다
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button size="lg" variant="secondary">
+              무료로 시작하기
+            </Button>
+            <Button size="lg" variant="outline">
+              IDE 다운로드
+            </Button>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
+  );
+}
 
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">{t('footer.copyright')}</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="/terms-of-service">
-            {t('footer.terms')}
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="/privacy-policy">
-            {t('footer.privacy')}
-          </Link>
-        </nav>
-      </footer>
+function FeatureCard({ icon, title, description }) {
+  return (
+    <Card className="p-6">
+      <CardContent className="space-y-4">
+        <div className="flex justify-center">{icon}</div>
+        <h3 className="text-xl font-semibold text-center">{title}</h3>
+        <p className="text-gray-600 text-center">{description}</p>
+      </CardContent>
+    </Card>
+  );
+}
+
+function ProcessCard({ number, icon, title, description }) {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center space-x-4">
+        <span className="text-2xl font-bold text-blue-500">{number}</span>
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold">{title}</h3>
+      <p className="text-gray-600">{description}</p>
     </div>
+  );
+}
+
+function CourseCard({ icon, title, level, duration, technologies }) {
+  return (
+    <Card className="p-6">
+      <CardContent className="space-y-4">
+        <div className="flex items-center space-x-4">
+          {icon}
+          <h3 className="text-xl font-semibold">{title}</h3>
+        </div>
+        <div className="space-y-2">
+          <p className="text-sm text-gray-600">난이도: {level}</p>
+          <p className="text-sm text-gray-600">기간: {duration}</p>
+          <div className="flex flex-wrap gap-2">
+            {technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-1 text-xs bg-gray-100 rounded-full"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
