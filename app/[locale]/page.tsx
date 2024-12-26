@@ -10,26 +10,26 @@ export default function LandingPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center px-4 py-24 text-center bg-gradient-to-b from-gray-50 to-white">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl text-gray-900">
+      <section className="flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 py-12 md:py-24 text-center bg-gradient-to-b from-gray-50 to-white">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900 max-w-[800px]">
           EduSense
         </h1>
-        <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl">
+        <p className="mt-4 md:mt-6 text-base md:text-lg leading-7 md:leading-8 text-gray-600 max-w-xl md:max-w-2xl px-4">
           AI 기반 코드 분석과 맞춤형 피드백으로 여러분의 코딩 실력을 극대화하세요
         </p>
-        <div className="mt-10 flex items-center gap-x-6">
-          <Button size="lg">무료로 시작하기</Button>
-          <Button variant="outline" size="lg">IDE 다운로드</Button>
+        <div className="mt-6 md:mt-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <Button size="lg" className="w-full sm:w-auto">무료로 시작하기</Button>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto">IDE 다운로드</Button>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <section className="py-12 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
             EduSense만의 특별한 학습 경험
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <FeatureCard
               icon={<Brain className="w-10 h-10 text-blue-500" />}
               title="AI 코드 분석"
@@ -50,12 +50,12 @@ export default function LandingPage() {
       </section>
 
       {/* Learning Process */}
-      <section className="py-24 bg-gray-50">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <section className="py-12 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
             자율적 학습, 지능적 가이드
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             <ProcessCard
               number="01"
               icon={<Laptop className="w-8 h-8" />}
@@ -85,17 +85,17 @@ export default function LandingPage() {
       </section>
 
       {/* IDE Section */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <section className="py-12 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
             전문가급 로컬 IDE
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
+              <h3 className="text-xl md:text-2xl font-semibold">
                 직관적인 학습 가이드가 통합된 개발 환경
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3 md:space-y-4">
                 <li className="flex items-center gap-2">
                   <Check className="text-green-500" />
                   AI 기반 코드 분석 및 피드백
@@ -118,17 +118,15 @@ export default function LandingPage() {
                 </li>
               </ul>
               <div className="space-y-4">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm md:text-base text-gray-600">
                   예시: 디버깅 시 다음 중단점 위치 하이라이트, 
                   코드 리팩토링 시 수정이 필요한 부분 강조,
                   새로운 기능 구현 시 관련 메뉴나 버튼 가이드 등
                 </p>
               </div>
-              <Button>
-                IDE 다운로드
-              </Button>
+              <Button className="w-full sm:w-auto">IDE 다운로드</Button>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
+            <div className="rounded-lg overflow-hidden shadow-xl order-1 lg:order-2">
               <Image 
                 src="/ide-screenshot.png" 
                 alt="EduSense IDE" 
@@ -142,12 +140,12 @@ export default function LandingPage() {
       </section>
 
       {/* Curriculum Section */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <section className="py-12 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
             체계적인 학습 경로
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <CourseCard
               icon={<Code className="w-8 h-8" />}
               title="웹 개발"
@@ -174,19 +172,19 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-blue-500 text-white">
-        <div className="container px-4 mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
+      <section className="py-12 md:py-24 bg-blue-500 text-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
             미래의 개발자로 성장하세요
           </h2>
-          <p className="text-xl mb-8">
+          <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
             EduSense의 지능형 코드 분석과 함께라면 누구나 전문 개발자가 될 수 있습니다
           </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" variant="secondary">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               무료로 시작하기
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto">
               IDE 다운로드
             </Button>
           </div>
